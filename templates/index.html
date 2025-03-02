@@ -3,10 +3,178 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../static/style.css">
-    <title>Simple HTML Page</title>
+    <title> Car Insurance Company</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Top Section: Main Title */
+        .top-section {
+            background-color: #28a745;
+            color: white;
+            width: 100%;
+            text-align: center;
+            padding: 20px 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .top-section h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        /* Middle Section: Form */
+        .middle-section {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            width: 100%;
+        }
+
+        .form-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+
+        .form-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .form-group input[type="submit"] {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .form-group input[type="submit"]:hover {
+            background-color: #218838;
+        }
+
+        .form-group .split-fields {
+            display: flex;
+            gap: 10px;
+        }
+
+        .form-group .split-fields input {
+            width: 50%;
+        }
+
+        /* Bottom Section: Copyright */
+        .bottom-section {
+            background-color: #333;
+            color: white;
+            width: 100%;
+            text-align: center;
+            padding: 10px 0;
+            font-size: 14px;
+        }
+
+        .bottom-section p {
+            margin: 5px 0;
+        }
+    </style>
 </head>
 <body>
-    <h1>Hello World</h1>
+
+    <!-- Top Section: Main Title -->
+    <div class="top-section">
+        <h1>EMAM Insurance Company</h1>
+    </div>
+
+    <!-- Middle Section: Form -->
+    <div class="middle-section">
+        <div class="form-container">
+            <h2>Enter Car Details</h2>
+            <form action="details.html" method="GET">
+                <!-- Car Name and Car Type -->
+                <div class="form-group">
+                    <label for="carName">Car Name and Type:</label>
+                    <div class="split-fields">
+                        <input type="text" id="carName" name="carName" placeholder="Car Name" required>
+                        <input type="text" id="carType" name="carType" placeholder="Car Type" required>
+                    </div>
+                </div>
+
+                <!-- Number of Cylinders -->
+                <div class="form-group">
+                    <label for="cylinders">Number of Cylinders:</label>
+                    <select id="cylinders" name="cylinders" required>
+                        <option value="">Select</option>
+                        <option value="4">4</option>
+                        <option value="6">6</option>
+                        <option value="8">8</option>
+                    </select>
+                </div>
+
+                <!-- Year of Manufacture -->
+                <div class="form-group">
+                    <label for="year">Year of Manufacture:</label>
+                    <input type="number" id="year" name="year" min="1900" max="2023" required>
+                </div>
+
+                <!-- Type of Insurance -->
+                <div class="form-group">
+                    <label for="insurance">Type of Insurance:</label>
+                    <select id="insurance" name="insurance" required>
+                        <option value="">Select</option>
+                        <option value="comprehensive">Comprehensive</option>
+                        <option value="third_party">Against Third Parties</option>
+                    </select>
+                </div>
+
+                <!-- Age of the Driver -->
+                <div class="form-group">
+                    <label for="driverAge">Age of the Driver:</label>
+                    <input type="number" id="driverAge" name="driverAge" min="18" max="100" required>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="form-group">
+                    <input type="submit" value="Submit">
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Bottom Section: Copyright -->
+    <div class="bottom-section">
+        <p>Car Insurance Company</p>
+        <p>&copy; 2025 Car Insurance Company. All rights reserved.</p>
+    </div>
+
 </body>
 </html>
