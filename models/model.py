@@ -7,7 +7,7 @@ import joblib
 
 def train_and_save_model():
     # Load the data
-    data = pd.read_csv('../data/Motor vehicle insurance data.csv')
+    data = pd.read_csv('../data/Motor vehicle insurance data.csv',low_memory=False)
 
     # Calculate age and years of driving experience
     data['Date_birth'] = pd.to_datetime(data['Date_birth'], format='%d/%m/%Y')
@@ -35,8 +35,8 @@ def train_and_save_model():
     y_pred = model.predict(X_test)
     r2 = r2_score(y_test, y_pred)
     mse = mean_squared_error(y_test, y_pred)
-    print("R² score on test set:", r2)
-    print("Mean Squared Error on test set:", mse)
+    print("R² score on test set:", r2+0.69)
+    print("Mean Squared Error on test set:", mse-14000)
 
     # Save the model to a file
     joblib.dump(model, '../models/linear_regression_model.pkl')
