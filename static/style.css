@@ -7,7 +7,9 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-height: 100vh;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
 }
 
 /* Top Section: Main Title */
@@ -22,7 +24,8 @@ body {
 
 .top-section h1 {
     margin: 0;
-    font-size: 24px;
+    font-size: 34px;
+    text-shadow: 2px 2px 3px rgba(0,0,0,0.3);
 }
 
 /* Middle Section: Form */
@@ -41,7 +44,7 @@ body {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 450px; /* Increased width to accommodate labels and inputs on one line */
+    width: 450px; /* Adjusted width for better layout */
 }
 
 .form-container h2 {
@@ -52,31 +55,30 @@ body {
 /* Form Group Styles */
 .form-group {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end; /* Aligns the children to the right */
     align-items: center;
     margin-bottom: 15px;
+    gap: 10px; /* Space between label and input/select */
 }
 
 .form-group label {
-    margin-right: 10px; /* Space between label and input */
-    font-weight: bold;
     white-space: nowrap; /* Prevents the label from wrapping */
+    width: 70%; /* Width adjusted to provide a consistent layout */
 }
 
 .form-group input, .form-group select {
-    flex-grow: 1;
+    width: 40%; /* All input and select elements have the same width */
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    box-sizing: border-box;
 }
 
 .form-group input[type="submit"] {
+    width: 100%; /* Full width button */
     background-color: #28a745;
     color: white;
     border: none;
     cursor: pointer;
-    width: 100%; /* Full width button */
 }
 
 .form-group input[type="submit"]:hover {
