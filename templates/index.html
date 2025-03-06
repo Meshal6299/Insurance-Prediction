@@ -18,137 +18,64 @@
         <div class="form-container">
             <h2>Enter Car Details</h2>
             <form id="carDetailsForm" action="#" method="post">
-                <!-- Car Name and Car Type -->
-                <div class="form-group">
-                    <label for="carName">Car Name and Type:</label>
-                    <div class="split-fields">
-                        <input type="text" id="carName" name="carName" placeholder="Car Name" required>
-                        <input type="text" id="carType" name="carType" placeholder="Car Type" required>
-                    </div>
-                </div>
 
-                <!-- Number of Cylinders -->
-                <div class="form-group">
-                    <label for="cylinders">Number of Cylinders:</label>
-                    <select id="cylinders" name="cylinders" required>
-                        <option value="">Select</option>
-                        <option value="4">4</option>
-                        <option value="6">6</option>
-                        <option value="8">8</option>
-                    </select>
-                </div>
-
-                <!-- Year of Manufacture -->
-                <div class="form-group">
-                    <label for="year">Year of Manufacture:</label>
-                    <input type="number" id="year" name="year" min="1900" max="2023" required>
-                </div>
-
-                <!-- Type of Insurance -->
-                <div class="form-group">
-                    <label for="insurance">Type of Insurance:</label>
-                    <select id="insurance" name="insurance" required>
-                        <option value="">Select</option>
-                        <option value="comprehensive">Comprehensive</option>
-                        <option value="third_party">Against Third Parties</option>
-                    </select>
-                </div>
-
-                <!-- Age of the Driver -->
-                <div class="form-group">
+                <!-- Form fields arranged with labels on the left -->
+                <div class="form-group row">
                     <label for="driverAge">Age of the Driver:</label>
                     <input type="number" id="driverAge" name="driverAge" min="18" max="100" required>
                 </div>
 
-                <!-- Submit Button -->
-                <div class="form-group">
+                <div class="form-group row">
+                    <label for="driverExperience">Driver Experience (Years):</label>
+                    <input type="number" id="driverExperience" name="driverExperience" min="0" max="82" required>
+                </div>
+
+                <div class="form-group row">
+                    <label for="previousAccidents">Previous Accidents:</label>
+                    <input type="number" id="previousAccidents" name="previousAccidents" min="0" required>
+                </div>
+
+                <div class="form-group row">
+                    <label for="annualMileage">Annual Mileage (x1000 km):</label>
+                    <input type="number" id="annualMileage" name="annualMileage" min="0" required>
+                </div>
+
+                <div class="form-group row">
+                    <label for="carAge">Car Age (Years):</label>
+                    <input type="number" id="carAge" name="carAge" min="0" required>
+                </div>
+
+                <div class="form-group row">
+                    <label for="insurance">Type of Insurance:</label>
+                    <select id="insurance" name="insurance" required>
+                        <option value="">Select</option>
+                        <option value="comprehensive">Comprehensive</option>
+                        <option value="third_party">Third Party</option>
+                    </select>
+                </div>
+
+                <div class="form-group row">
+                    <label for="carType">Car Type:</label>
+                    <select id="carType" name="carType" required>
+                        <option value="">Select</option>
+                        <option value="suv">SUV</option>
+                        <option value="pickup">Pickup</option>
+                        <option value="sedan">Sedan</option>
+                        <option value="hatchback">Hatchback</option>
+                    </select>
+                </div>
+
+                <div class="form-group row">
                     <input type="submit" value="Submit">
                 </div>
             </form>
         </div>
     </div>
 
-    <!-- Bottom Section: Copyright -->
+    <!-- Bottom Section -->
     <div class="bottom-section">
         <p>Car Insurance Company</p>
         <p>&copy; 2025 Car Insurance Company. All rights reserved.</p>
     </div>
-
-    <!-- Overlay -->
-    <div class="overlay" id="overlay"></div>
-
-    <!-- Display Data Section -->
-    <div class="display-data" id="displayData">
-        <h2>Entered Data</h2>
-        <p><strong>Car Name:</strong> <span id="displayCarName"></span></p>
-        <p><strong>Car Type:</strong> <span id="displayCarType"></span></p>
-        <p><strong>Number of Cylinders:</strong> <span id="displayCylinders"></span></p>
-        <p><strong>Year of Manufacture:</strong> <span id="displayYear"></span></p>
-        <p><strong>Type of Insurance:</strong> <span id="displayInsurance"></span></p>
-        <p><strong>Age of the Driver:</strong> <span id="displayDriverAge"></span></p>
-        <p><strong>Insurance Estimate:</strong> $<span id="displayEstimate"></span></p>
-        <button class="close-btn" id="closeBtn">Close</button>
-        <button class="close-btn" id="clearBtn">Clear</button>
-    </div>
-
-    <script>
-
-        // Handle form submission
-        document.getElementById('carDetailsForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent form submission
-
-            // Get form values
-            const carName = document.getElementById('carName').value;
-            const carType = document.getElementById('carType').value;
-            const cylinders = document.getElementById('cylinders').value;
-            const year = document.getElementById('year').value;
-            const insurance = document.getElementById('insurance').value;
-            const driverAge = document.getElementById('driverAge').value;
-
-            // Display the values
-            document.getElementById('displayCarName').textContent = carName;
-            document.getElementById('displayCarType').textContent = carType;
-            document.getElementById('displayCylinders').textContent = cylinders;
-            document.getElementById('displayYear').textContent = year;
-            document.getElementById('displayInsurance').textContent = insurance;
-            document.getElementById('displayDriverAge').textContent = driverAge;
-
-            // Show the display data section and overlay
-            document.getElementById('displayData').style.display = 'block';
-            document.getElementById('overlay').style.display = 'block';
-
-            // Add blur effect to the main content
-            document.querySelector('.middle-section').classList.add('blur');
-            document.querySelector('.top-section').classList.add('blur');
-            document.querySelector('.bottom-section').classList.add('blur');
-        });
-
-        // Handle close button click
-        document.getElementById('closeBtn').addEventListener('click', function() {
-            // Hide the display data section and overlay
-            document.getElementById('displayData').style.display = 'none';
-            document.getElementById('overlay').style.display = 'none';
-
-            // Remove blur effect from the main content
-            document.querySelector('.middle-section').classList.remove('blur');
-            document.querySelector('.top-section').classList.remove('blur');
-            document.querySelector('.bottom-section').classList.remove('blur');
-        });
-
-        // Handle clear button click
-        document.getElementById('clearBtn').addEventListener('click', function() {
-            // Clear the form inputs
-            document.getElementById('carDetailsForm').reset();
-
-            // Hide the display data section and overlay
-            document.getElementById('displayData').style.display = 'none';
-            document.getElementById('overlay').style.display = 'none';
-
-            // Remove blur effect from the main content
-            document.querySelector('.middle-section').classList.remove('blur');
-            document.querySelector('.top-section').classList.remove('blur');
-            document.querySelector('.bottom-section').classList.remove('blur');
-        });
-    </script>
 </body>
 </html>
