@@ -30,7 +30,7 @@ r2 = r2_score(y_test, y_pred)
 
 #Print the results
 print(f"Mean Squared Error: {mse:.2f}")
-print(f'R^2 Score: {r2}')
+print(f'R^2 Score: {r2:.2f}')
 
 #Example input for prediction
 new_example = pd.DataFrame({
