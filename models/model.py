@@ -31,3 +31,18 @@ r2 = r2_score(y_test, y_pred)
 # Print the results
 print(f"Mean Squared Error: {mse:.2f}")
 print(f'R^2 Score: {r2}')
+
+# Example input for prediction
+new_example = pd.DataFrame({
+    'Driver Age': [25],
+    'Driver Experience': [6],
+    'Previous Accidents': [2],
+    'Annual Mileage (x1000 km)': [22],
+    'Car Age': [3],
+    'Coverage Type': [1], #0 for third party, 1 for comprehensive
+    'Car Type': [2] #0 for suv, 1 for pickup, 2 for sedan, 3 for hatchback
+})
+
+# Get prediction for the new example
+new_prediction = model.predict(new_example)
+print(f"Predicted Insurance Premium for new example: ${new_prediction[0]:.2f}")
