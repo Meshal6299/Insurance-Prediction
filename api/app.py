@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, jsonify
 from models.model import model
 import pandas as pd
 
@@ -26,8 +26,10 @@ def submit():
     # Assume 'predict' method expects a DataFrame
     prediction = model.predict(input_df)
     
-    # Display results
-    return render_template('index.html', prediction=prediction)
+    formatted_prediction = f"{prediction[0]:.2f}"
+
+    # Return a JSON response with the Predicion
+    return jsonify({'prediction': formatted_prediction})
 
 if __name__ == '__main__':
     app.run(debug=True)

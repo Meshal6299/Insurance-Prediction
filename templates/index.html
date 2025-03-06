@@ -68,7 +68,7 @@
                     <div class="popup-content">
                         <span class="close">&times;</span>
                         <h3>Prediction Result</h3>
-                        <p id="predictionText">Predicted Insurance Premium: {{ prediction }}</p>
+                        <p id="predictionText"></p>
                     </div>
                 </div>
 
@@ -84,23 +84,35 @@
 
     <!-- JavaScript -->
     <script>
-        document.getElementById('carDetailsForm').onsubmit = function() {
-            // Display the popup
-            document.getElementById('predictionPopup').style.display = "block";
-        };
+        document.getElementById('carDetailsForm').addEventListener('submit', function(event) {
+            event.preventDefault();  // Prevent the default form submission behavior
         
-        // When the user clicks on <span> (x), close the popup
+            var formData = new FormData(this);
+        
+            fetch('/submit', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())  // Assuming the server responds with JSON
+            .then(data => {
+                document.getElementById('predictionText').textContent = 'Predicted Insurance Premium: ' + data.prediction + ' AED';
+                document.getElementById('predictionPopup').style.display = 'block';
+            })
+            .catch(error => console.error('Error:', error));
+        });
+        
+        // Close popup logic
         document.getElementsByClassName('close')[0].onclick = function() {
             document.getElementById('predictionPopup').style.display = "none";
         };
         
-        // When the user clicks anywhere outside of the popup, close it
+        // Close popup when clicking outside of it
         window.onclick = function(event) {
             if (event.target == document.getElementById('predictionPopup')) {
                 document.getElementById('predictionPopup').style.display = "none";
             }
         };
-    </script>
-
+        </script>
+        
 </body>
 </html>
