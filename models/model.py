@@ -11,7 +11,7 @@ data['Coverage Type'] = data['Coverage Type'].map({'Third Party': 0, 'Comprehens
 data['Car Type'] = data['Car Type'].map({'suv': 0, 'pickup': 1, 'sedan': 2, 'hatchback': 3})
 
 #choosing the features and target variable
-X = data[["Driver Age", "Driver Experience", "Previous Accidents", "Annual Mileage (x1000 km)", "Car Age", "Coverage Type", "Car Type"]]
+X = data[["Driver Age", "Driver Experience", "Previous Accidents", "Car Age", "Coverage Type", "Car Type"]]
 y = data["Insurance Premium ($)"]
 
 #Split the dataset into training and testing sets (80% train, 20% test)
@@ -34,13 +34,12 @@ print(f'R^2 Score: {r2:.2f}')
 
 #Example input for prediction
 new_example = pd.DataFrame({
-    'Driver Age': [25],
-    'Driver Experience': [6],
-    'Previous Accidents': [2],
-    'Annual Mileage (x1000 km)': [22],
-    'Car Age': [3],
-    'Coverage Type': [1], #0 for third party, 1 for comprehensive 
-    'Car Type': [2] #0 for suv, 1 for pickup, 2 for sedan, 3 for hatchback 
+    'Driver Age': [35], #the younger the driver, the higher the insurance premium
+    'Driver Experience': [10], #the more experience, the lower the insurance premium
+    'Previous Accidents': [10], #the more accidents, the higher the insurance premium
+    'Car Age': [15], #the older the car, the higher the insurance premium
+    'Coverage Type': [0], #0 for third party, 1 for comprehensive 
+    'Car Type': [0] #0 for suv, 1 for pickup, 2 for sedan, 3 for hatchback 
 })
 
 #Get prediction for the new example
