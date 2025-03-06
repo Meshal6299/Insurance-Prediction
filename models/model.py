@@ -34,14 +34,14 @@ print(f'R^2 Score: {r2:.2f}')
 
 #Example input for prediction
 new_example = pd.DataFrame({
-    'Driver Age': [35], #the younger the driver, the higher the insurance premium
-    'Driver Experience': [10], #the more experience, the lower the insurance premium
-    'Previous Accidents': [10], #the more accidents, the higher the insurance premium
-    'Car Age': [15], #the older the car, the higher the insurance premium
+    'Driver Age': [41], #the younger the driver, the higher the insurance premium
+    'Driver Experience': [2], #the more experience, the lower the insurance premium
+    'Previous Accidents': [3], #the more accidents, the higher the insurance premium
+    'Car Age': [13], #the older the car, the higher the insurance premium
     'Coverage Type': [0], #0 for third party, 1 for comprehensive 
-    'Car Type': [0] #0 for suv, 1 for pickup, 2 for sedan, 3 for hatchback 
+    'Car Type': [2] #0 for suv, 1 for pickup, 2 for sedan, 3 for hatchback 
 })
 
 #Get prediction for the new example
 new_prediction = model.predict(new_example)
-print(f"Predicted Insurance Premium for new example: ${new_prediction[0]:.2f}")
+print(f"Predicted Insurance Premium for new example: {new_prediction[0]:.2f}AED")
