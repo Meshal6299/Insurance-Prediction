@@ -104,12 +104,14 @@
         // Close popup logic
         document.getElementsByClassName('close')[0].onclick = function() {
             document.getElementById('predictionPopup').style.display = "none";
+            document.getElementById('carDetailsForm').reset();
         };
         
         // Close popup when clicking outside of it
         window.onclick = function(event) {
             if (event.target == document.getElementById('predictionPopup')) {
                 document.getElementById('predictionPopup').style.display = "none";
+                document.getElementById('carDetailsForm').reset();
             }
         };
         </script>
